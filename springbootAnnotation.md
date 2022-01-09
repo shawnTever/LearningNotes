@@ -1,39 +1,44 @@
-- [A](#a)
-- [B](#b)
-- [C](#c)
-- [D](#d)
-- [E](#e)
-- [F](#f)
-- [G](#g)
-- [H](#h)
-- [I](#i)
-- [J](#j)
-- [K](#k)
-- [L](#l)
-- [M](#m)
-- [N](#n)
-- [O](#o)
-- [P](#p)
-- [Q](#q)
-- [R](#r)
-- [S](#s)
-- [T](#t)
-- [U](#u)
-- [V](#v)
-- [W](#w)
-- [X](#x)
-- [Y](#y)
-- [Z](#z)
+# Springboot 注解
 
-# A
+- [Springboot 注解](#springboot-注解)
+  - [A](#a)
+  - [B](#b)
+  - [C](#c)
+  - [D](#d)
+  - [E](#e)
+  - [F](#f)
+  - [G](#g)
+  - [H](#h)
+  - [I](#i)
+  - [J](#j)
+  - [K](#k)
+  - [L](#l)
+  - [M](#m)
+  - [N](#n)
+  - [O](#o)
+  - [P](#p)
+  - [Q](#q)
+  - [R](#r)
+  - [S](#s)
+  - [T](#t)
+  - [U](#u)
+  - [V](#v)
+  - [W](#w)
+  - [X](#x)
+  - [Y](#y)
+  - [Z](#z)
+
+- [主页](README.md)
+
+## A
 
 @Autowired：自动注入。
 
-# B
+## B
 
 @Bean：一个方法级别上的注解，主要用在@Configuration注解的类里，也可以用在@Component注解的类里。凡是子类及带有方法或属性的类都要加上注册Bean到Spring IoC的注解。方法名即为bean的名字
 
-# C
+## C
 
 @Controller：在tomcat启动的时候，把这个类作为一个控制器加载到Spring的Bean工厂。是一个泛化的概念，仅仅表示一个组件 (Bean) ，可以作用在任何层次。
 
@@ -41,43 +46,43 @@
 
 @ContextConfiguration：Spring整合JUnit4测试时，使用注解引入多个配置文件
 
-# D
+## D
 
 @PreDestroy：被@PreDestroy修饰的方法会在服务器卸载Servlet的时候运行，并且只会被服务器调用一次，类似于Servlet的destroy()方法。被@PreDestroy修饰的方法会在destroy()方法之后运行，在Servlet被彻底卸载之前。
 
-# E
+## E
 
-# F
+## F
 
-# G
+## G
 
-# H
+## H
 
-# I
+## I
 
-# J
+## J
 
-# K
+## K
 
-# L
+## L
 
-# M
+## M
 
 @mapper：给mapper接口自动生成一个实现类，让spring对mapper接口的bean进行管理，并且可以省略去写复杂的xml文件
 
-# N
+## N
 
-# O
+## O
 
-# P
+## P
 
 @PostConstruct：该注解被用来修饰一个非静态的void（）方法。被@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器调用一次，类似于Serclet的inti()方法。被@PostConstruct修饰的方法会在构造函数之后，init()方法之前运行。
 
-# Q
+## Q
 
 @Qualifier：在使用@Autowire自动注入的时候，加上@Qualifier(“test”)可以指定注入哪个对象；可以作为筛选的限定符，我们在做自定义注解时可以在其定义上增加@Qualifier，用来筛选需要的对象。
 
-# R
+## R
 
 @Repository：标注数据访问组件，即DAO组件
 
@@ -90,7 +95,7 @@
 
 @RunWith(SpringRunner.class)：测试启动器，有了它这些类才能实例化到spring容器中。在IDEA里识别为一个JUNIT的运行环境，相当于就是一个自识别的RUNWITH环境配置。但在其他IDE里并没有。
 
-# S
+## S
 
 @Service：通常作用在业务层，但是目前该功能与 @Component 相同。
 
@@ -98,18 +103,18 @@
 
 @SpringBootTest：是SpringBoot自1.4.0版本开始引入的一个用于测试的注解。
 
-# T
+## T
 
-# U
+## U
 
-# V
+## V
 
 @Value：将环境变量写在配置文件中，让他根据运行的环境进行读取。
 
-# W
+## W
 
-# X
+## X
 
-# Y
+## Y
 
-# Z
+## Z

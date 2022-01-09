@@ -1,5 +1,14 @@
 # Redis
 
+- [Redis](#redis)
+  - [数据类型](#数据类型)
+  - [Redis过期键的删除策略](#redis过期键的删除策略)
+  - [RDB](#rdb)
+  - [RDB 的缺点](#rdb-的缺点)
+  - [AOF](#aof)
+
+- [主页](README.md)
+
 ## 数据类型
 
 String、Hash、List、Set、SortedSet、HyperLogLog、Geo、Pub/Sub
