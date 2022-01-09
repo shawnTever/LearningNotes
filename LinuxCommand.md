@@ -1,3 +1,25 @@
+# Linux指令
+
+- [Linux指令](#linux指令)
+  - [rm 删除](#rm-删除)
+  - [touch 创建文件，修改文件时间](#touch-创建文件修改文件时间)
+  - [dpkg 安装.deb软件](#dpkg-安装deb软件)
+  - [wget 下载文件的工具](#wget-下载文件的工具)
+  - [tar 压缩解压文件.gz格式](#tar-压缩解压文件gz格式)
+  - [mv 移动文件](#mv-移动文件)
+  - [mkdir 创建目录](#mkdir-创建目录)
+  - [chown 改变拥有着](#chown-改变拥有着)
+  - [cat 连接文件并打印到标准输出设备](#cat-连接文件并打印到标准输出设备)
+  - [cp 复制](#cp-复制)
+  - [ps 查看当前进程](#ps-查看当前进程)
+  - [pwd 绝对路径](#pwd-绝对路径)
+  - [echo 标准输出中显示输入的字符串](#echo-标准输出中显示输入的字符串)
+  - [chmod 用户对文件的权限](#chmod-用户对文件的权限)
+  - [stat 查看文件信息](#stat-查看文件信息)
+  - [zip 压缩解压 zip格式](#zip-压缩解压-zip格式)
+  - [free 内存的使用情况](#free-内存的使用情况)
+  - [top 系统处理器状态监视](#top-系统处理器状态监视)
+
 **sudo vim /etc/profile**
 
 修改环境变量
@@ -14,7 +36,7 @@
 
 杀掉占用端口的进程：sudo kill -9 进程id
 
-# rm 删除
+## rm 删除
 
 rm [options] name
 
@@ -26,7 +48,7 @@ rm test.txt：删除 一般文件 "test.txt"
 
 rm -r homework ：删除目录 "homework"
 
-# touch 创建文件，修改文件时间
+## touch 创建文件，修改文件时间
 
 touch [-acfm][-d<日期时间>][-r<参考文件或目录>] [-t<日期时间>][--help][--version][文件或目录…]
 
@@ -56,7 +78,7 @@ touch testfile：修改文件"testfile"的时间属性为当前系统时间
 
 touch file：在当前目录下，使用该指令创建一个空白文件"file"
 
-# dpkg 安装.deb软件
+## dpkg 安装.deb软件
 
 dpkg -i <.deb file name>: 安装.deb软件
 
@@ -68,9 +90,9 @@ dpkg –configure package_file：重新配置和释放软件包
 
 dpkg -r：删除软件包（保留其配置信息）
 
-# wget 下载文件的工具
+## wget 下载文件的工具
 
-# tar 压缩解压文件.gz格式
+## tar 压缩解压文件.gz格式
 
 tar -czvf test.tar.gz a.c：压缩 a.c文件为test.tar.gz
 
@@ -78,7 +100,7 @@ tar -tzvf test.tar.gz：列出压缩文件内容
 
 tar -xzvf test.tar.gz：解压文件
 
-# mv 移动文件
+## mv 移动文件
 
 mv source_file(文件) dest_file(文件)：源文件名 source_file 改为目标文件名 dest_file
 
@@ -86,7 +108,7 @@ mv source_file(文件) dest_directory(目录)：将文件 source_file 移动到�
 
 mv source_directory(目录) dest_directory(目录)：目录名 dest_directory 已存在，将 source_directory 移动到目录名 dest_directory 中；目录名 dest_directory 不存在则 source_directory 改名为目录名 dest_directory
 
-# mkdir 创建目录
+## mkdir 创建目录
 
 mkdir [-p] dirName
 
@@ -98,7 +120,7 @@ mkdir runoob：在工作目录下，建立一个名为 runoob 的子目录
 
 mkdir -p runoob2/test：在工作目录下的 runoob2 目录中，建立一个名为 test 的子目录。若 runoob2 目录原本不存在，则建立一个。
 
-# chown 改变拥有着
+## chown 改变拥有着
 
 chown [-cfhvR] [--help] [--version] user[:group] file...
 
@@ -112,7 +134,7 @@ chown runoob:runoobgroup file1.txt：将文件 file1.txt 的拥有者设为 runo
 
 chown -R runoob:runoobgroup *：将当前前目录下的所有文件与子目录的拥有者皆设为 runoob，群体的使用者 runoobgroup。
 
-# cat 连接文件并打印到标准输出设备
+## cat 连接文件并打印到标准输出设备
 
 cat [-AbeEnstTuv] [--help] [--version] fileName 连接文件并打印到标准输出设备
 
@@ -134,7 +156,7 @@ cat [-AbeEnstTuv] [--help] [--version] fileName 连接文件并打印到标准�
 
 -t：等价于"-vT"选项；
 
-# cp 复制
+## cp 复制
 
 cp [options] source dest
 
@@ -154,7 +176,7 @@ eg：
 
 复制源目录 为 dir1 ,目标目录为dir2，如果dir2目录不存在：cp -r dir1 dir2；如果dir2目录已存在：cp -r dir1/. dir2
 
-# ps 查看当前进程
+## ps 查看当前进程
 
 eg:
 
@@ -162,7 +184,7 @@ ps是显示当前状态处于running的进程，grep表示在这些里搜索，�
 
 查到mongo的进程：ps aux | grep mongo
 
-# pwd 绝对路径
+## pwd 绝对路径
 
 立刻得知您目前所在的工作目录的绝对路径名称
 
@@ -172,7 +194,7 @@ pwd [--help][--version]
 
 --version 显示版本信息
 
-# echo 标准输出中显示输入的字符串
+## echo 标准输出中显示输入的字符串
 
 echo 命令用来在标准输出中显示输入的字符串。
 
@@ -200,7 +222,7 @@ b 删除前一个字符；
 
 \nnn 插入nnn（八进制）所代表的ASCII字符；
 
-# chmod 用户对文件的权限
+## chmod 用户对文件的权限
 
 控制用户对文件的权限的命令
 
@@ -216,9 +238,9 @@ chmod ugo+r file1.txt
 
 chmod a+r file1.txt
 
-# stat 查看文件信息
+## stat 查看文件信息
 
-# zip 压缩解压 zip格式
+## zip 压缩解压 zip格式
 
 将 /home/html/ 这个目录下所有文件和文件夹打包为当前目录下的 html.zip：zip -q -r html.zip /home/html
 
@@ -226,7 +248,7 @@ chmod a+r file1.txt
 
 从压缩文件 cp.zip 中删除文件 a.c：zip -dv cp.zip a.c
 
-# free 内存的使用情况
+## free 内存的使用情况
 
 用来显示内存的使用情况，使用权限是所有用户。
 
@@ -234,7 +256,7 @@ free ［－b－k－m］ ［－o］ ［－s delay］ ［－t］ ［－V］
 
 参数：－b －k －m：分别以字节（KB、MB）为单位显示内存使用情况。－s delay：显示每隔多少秒数来显示一次内存使用情况。－t：显示内存总和列。－o：不显示缓冲区调节列
 
-# top 系统处理器状态监视
+## top 系统处理器状态监视
 
 实时地对系统处理器的状态进行监视。
 
@@ -254,11 +276,11 @@ s ： 使top命令在安全模式中运行。这将去除交互命令所带来�
 
 i：  使top不显示任何闲置或者僵死进程。
 
-c：  显示整个命令行而不只是显示命令名在top命令的显示窗口，我们还可以输入以下字母，进行一些交互：
+c： 显示整个命令行而不只是显示命令名在top命令的显示窗口，我们还可以输入以下字母，进行一些交互：
 
 h或者?  : 显示帮助画面，给出一些简短的命令总结说明。
 
-k  ：终止一个进程。系统将提示用户输入需要终止的进程PID，以及需要发送给该进程什么样的信号。一般的终止进程可以使用15信号；如果不能正常结束那就使用信号9强制结束该进程。默认值是信号15。在安全模式中此命令被屏蔽。
+k：终止一个进程。系统将提示用户输入需要终止的进程PID，以及需要发送给该进程什么样的信号。一般的终止进程可以使用15信号；如果不能正常结束那就使用信号9强制结束该进程。默认值是信号15。在安全模式中此命令被屏蔽。
 
 i：忽略闲置和僵死进程。这是一个开关式命令。
 

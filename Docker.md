@@ -1,26 +1,47 @@
-# 容器技术优势
+# Docker
 
-* 开发和运维人员可以一次创建和配置环境，可以在任何地方运行。
+- [Docker](#docker)
+  - [容器技术优势](#容器技术优势)
+  - [Docker架构](#docker架构)
+  - [列出镜像 docker images](#列出镜像-docker-images)
+  - [下载镜像 docker pull](#下载镜像-docker-pull)
+  - [删除镜像 docker rmi](#删除镜像-docker-rmi)
+  - [删除容器 docker rm](#删除容器-docker-rm)
+  - [在运行的容器中执行命令 docker exec](#在运行的容器中执行命令-docker-exec)
+  - [在运行的容器中执行命令 docker attach](#在运行的容器中执行命令-docker-attach)
+  - [启动容器 docker start](#启动容器-docker-start)
+  - [停止容器 docker stop](#停止容器-docker-stop)
+  - [标记本地镜像 docker tag](#标记本地镜像-docker-tag)
+  - [docker-compose up -d 启动所有服务](#docker-compose-up--d-启动所有服务)
+  - [docker-compose ps 检查服务状态](#docker-compose-ps-检查服务状态)
+  - [docker-compose down 停止所有容器服务](#docker-compose-down-停止所有容器服务)
+  - [docker-compose stop 停止所有容器服务](#docker-compose-stop-停止所有容器服务)
+  - [docker ps -a 查看已经在运行的容器](#docker-ps--a-查看已经在运行的容器)
+  - [Docker exec 在运行的容器中执行命令](#docker-exec-在运行的容器中执行命令)
+  
+## 容器技术优势
 
-* 开发者可以使用一个标准的镜像来构建一套开发容器
+- 开发和运维人员可以一次创建和配置环境，可以在任何地方运行。
 
-* 运维人员可以直接使用这个容器来部署代码
+- 开发者可以使用一个标准的镜像来构建一套开发容器
 
-* docker可以快速创建容器、快速迭代应用程序、全程是可见的
+- 运维人员可以直接使用这个容器来部署代码
 
-* 让团队中其他人员能够更容易理解应用程序是如何被创建和工作
+- docker可以快速创建容器、快速迭代应用程序、全程是可见的
 
-* docker容器启动轻快
+- 让团队中其他人员能够更容易理解应用程序是如何被创建和工作
 
-* 内核级别虚拟化，可以实现更高性能和效率
+- docker容器启动轻快
 
-* 更轻松迁移和扩展，几乎可以在当前流行的平台上运行（物理机，虚拟机，公有云，私有云，个人电脑）
+- 内核级别虚拟化，可以实现更高性能和效率
 
-* 用户可以擦一个程序从一个平台迁移到另一个平台
+- 更轻松迁移和扩展，几乎可以在当前流行的平台上运行（物理机，虚拟机，公有云，私有云，个人电脑）
 
-* 所有修改都会以增量的方式被分发和更新
+- 用户可以擦一个程序从一个平台迁移到另一个平台
 
-# Docker架构
+- 所有修改都会以增量的方式被分发和更新
+
+## Docker架构
 
 docker是CS（Client、server）架构
 
@@ -36,11 +57,11 @@ docker是CS（Client、server）架构
 
 **docker扩展架构**：容器与系统CoreOS，其他定制化操作系统
 
-# 列出镜像 docker images
+## 列出镜像 docker images
 
 docker image ls -a
 
-**docker images**
+**docker images**列出镜像
 
 -a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；
 
@@ -54,11 +75,11 @@ docker image ls -a
 
 -q :只显示镜像ID。
 
-# 下载镜像 docker pull
+## 下载镜像 docker pull
 
 docker pull 镜像名字 <:tags> 从远程仓库抽取镜像
 
-# 删除镜像 docker rmi
+## 删除镜像 docker rmi
 
 docker rmi 镜像名字
 
@@ -68,7 +89,7 @@ docker rmi -f 镜像名A:tag 镜像名B:tag ：删除多个
 
 docker rmi -f $(docker images -aq)：删除全部
 
-# 删除容器 docker rm
+## 删除容器 docker rm
 
 docker rm <-f> 容器id
 
@@ -82,29 +103,29 @@ docker rm <-f> 容器id
 
 --name：自定义容器名称
 
-eg: 
+eg:
 
 docker run -i -t  ubuntu:18.04 /bin/bash
 
 docker run -itd  ubuntu
 
-# 在运行的容器中执行命令 docker exec
+## 在运行的容器中执行命令 docker exec
 
 exit退出容器，容器不会停止
 
-# 在运行的容器中执行命令 docker attach
+## 在运行的容器中执行命令 docker attach
 
 exit退出容器，容器停止
 
-# 启动容器 docker start
+## 启动容器 docker start
 
 docker start [ID]
 
-# 停止容器 docker stop
+## 停止容器 docker stop
 
 docker stop [ID]
 
-# 标记本地镜像 docker tag
+## 标记本地镜像 docker tag
 
 标记本地镜像，将其归入某一仓库
 
@@ -118,17 +139,17 @@ docker tag ubuntu:15.10 runoob/ubuntu:v3
 
 REPOSITORY TAG IMAGE ID CREATED  SIZErunoob/ubuntu v3 4e3b13c8a266 3 months ago 136.3 MB
 
-# docker-compose up -d 启动所有服务
+## docker-compose up -d 启动所有服务
 
-# docker-compose ps 检查服务状态
+## docker-compose ps 检查服务状态
 
-# docker-compose down 停止所有容器服务
+## docker-compose down 停止所有容器服务
 
-# docker-compose stop 停止所有容器服务
+## docker-compose stop 停止所有容器服务
 
-# docker ps -a 查看已经在运行的容器
+## docker ps -a 查看已经在运行的容器
 
-# Docker exec 在运行的容器中执行命令
+## Docker exec 在运行的容器中执行命令
 
 -d :分离模式: 在后台运行
 
