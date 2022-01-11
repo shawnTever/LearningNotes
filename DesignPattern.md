@@ -2,7 +2,7 @@
 
 - [Design Pattern](#design-pattern)
   - [Singleton](#singleton)
-    - [饿汉式](#饿汉式)
+    - [**饿汉式**](#饿汉式)
 
 - [主页](README.md)
 
@@ -10,22 +10,40 @@
 
 单例模式，采取一定方法保证整个软件系统中，对某个类只能存在一个对象实例
 
-### 饿汉式
+### **饿汉式**
 
 优点：类加载到内存以后，就是理化一个单例，避免线程同步问题，JVM保证线程安全
 
 缺点：类装载时就完成实例化，如果未使用这个实例，则造成内存浪费
 
-    class SingletonStaticVariable {
-    private SingletonStaticVariable() {
-
+```java
+public class singleton {
+    public static void main(String[] args) {
+        SingletonStaticVariable instance = SingletonStaticVariable.getInstance();
+        SingletonStaticVariable instance2 = SingletonStaticVariable.getInstance();
+        System.out.println(instance == instance2);
     }
+}
 
-    private final static SingletonStaticVariable instance = new SingletonStaticVariable();
+class Singleton {
+private Singleton() {
 
-    public static SingletonStaticVariable getInstance() {
-        return instance;
-    }
+}
 
+private static final Singleton instance = new Singleton();
 
+/*
+# 用静态语句块
 
+private static final Singleton instance；
+
+static {
+    instance = new Singleton();
+}
+*/
+
+public static Singleton getInstance() {
+    return instance;
+}
+
+```

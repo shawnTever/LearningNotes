@@ -31,7 +31,53 @@
 
 &emsp;缩进 4 个空格或是 1 个制表符
 
-    #这是代码块
+&emsp;**Java代码块**
+
+>\```java
+<br>中间填写代码
+<br>\```
+
+&emsp;**eg**：
+
+```java
+System.out.println("Hello world!");
+```
+
+&emsp;**纯代码块**
+
+>\```text（or ‘plain’）
+<br>中间填写代码
+<br>\```
+
+&emsp;**eg**：
+
+```plan
+System.out.println("Hello world!");
+```
+
+&emsp;markdown支持代码可块类型
+| Name | Keywords |
+| --- | ----------- |
+| Shell | bash , shell |
+| C | cpp , c |
+| C# | c# , c-sharp , csharp |
+| CSS | css |
+| Java | java |
+| JavaFX | jfx , javafx |
+| JavaScript | js , jscript , javascript |
+| PHP | php |
+| Perl | perl , pl , Perl |
+| text | text , plain |
+| Python | py , python |
+| Ruby | ruby , rails , ror , rb |
+| Scala | scala |
+| SQL | sql |
+| Visual Basic | vb , vbnet |
+| XML | xml , xhtml , xslt , html |
+| R | r , s , splus |
+| matlab | matlab |
+| swift | swift |
+| GO | go , golang |
 
 ## **4. 分割线**
 
@@ -83,4 +129,3 @@ ___
 ## **10. 创建更新目录**
 
 &emsp;ctrl + shift + p 找到 Markdown All in One: Create Table of Contents
-
