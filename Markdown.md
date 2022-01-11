@@ -12,6 +12,8 @@
   - [**9. 转义字符**](#9-转义字符)
   - [**10. 创建更新目录**](#10-创建更新目录)
 
+- [主页](README.md)
+
 ## **1. 标题**
 
 &nbsp; &nbsp; 用 # 标识符表示， 例如：
@@ -129,3 +131,5 @@ ___
 ## **10. 创建更新目录**
 
 &emsp;ctrl + shift + p 找到 Markdown All in One: Create Table of Contents
+
+&emsp;ctrl + shift + p 找到 Markdown All in One: Update Table of Contents
