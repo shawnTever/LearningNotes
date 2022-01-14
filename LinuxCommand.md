@@ -20,6 +20,8 @@
   - [free 内存的使用情况](#free-内存的使用情况)
   - [top 系统处理器状态监视](#top-系统处理器状态监视)
 
+- [主页](README.md)
+
 **sudo vim /etc/profile**
 
 修改环境变量
