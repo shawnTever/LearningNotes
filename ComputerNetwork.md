@@ -18,9 +18,13 @@
     - [TCP协议的特点](#tcp协议的特点)
   - [NIO核心组件](#nio核心组件)
   - [HTTP与HTTPS区别](#http与https区别)
+  - [GET和POST请求区别](#get和post请求区别)
   - [拥塞控制和流量控制](#拥塞控制和流量控制)
   - [拥塞解决的两种方法](#拥塞解决的两种方法)
-  - [ARP协议](#arp协议)
+  - [ARP协议，地址解析协议](#arp协议地址解析协议)
+  - [NAT 网络地址转换](#nat-网络地址转换)
+  - [MAC地址](#mac地址)
+  - [DR模式](#dr模式)
 
 - [主页](README.md)
 
@@ -266,7 +270,7 @@ http协议比较费时，所以会影响服务响应速度及吞吐量
 
 https也不是完全安全的，证书体系并不是完全安全的，https在面对ddos这样的攻击的时候几乎起不到任何作用
 
-GET和POST请求区别
+## GET和POST请求区别
 
 GET在浏览器回退时是无害的，而POST会再次提交请求。
 
@@ -311,9 +315,20 @@ TCP的流量控制是利用**滑动窗口机制**实现的，接收方在返回�
 >>快重传要求接收方在收到一个失序的报文段后就立即发出重复确认
 <br>如果没有快速重传和快速恢复，TCP将会使用定时器来要求传输暂停。在暂停这段时间内，没有新的数据包被发送。所以快速重传和快速恢复旨在快速恢复丢失的数据包。
 
-## ARP协议
+## ARP协议，地址解析协议
 
 当电脑在通信之前会先在网络上发一个广播，目标IP是网关IP 192.168.1.1，网关（路由器）就会回复自己的MAC。然后，发送方就会通过网关的MAC地址给网关发一条IP报文，报文的目标IP就是接收方的IP地址，来源IP是发送方的IP地址。
 
 **地址解析协议**，即ARP（Address Resolution Protocol），是根据IP地址获取物理地址的一个TCP/IP协议。
 
+## NAT 网络地址转换
+
+NAT（Network Address Translation），是指网络地址转换。是在私有地址和全局地址之间转换的协议，在NAT转换表中呈映射关系。
+
+## MAC地址
+
+MAC地址（英语：Media Access Control Address），直译为**媒体存取控制位址**，也称为局域网地址（LAN Address），MAC位址，以太网地址（Ethernet Address）或物理地址（Physical Address），它是一个用来**确认网络设备位置**的位址。第二层**数据链路层**则负责MAC位址。第三层网络层负责IP地址。
+
+## DR模式
+
+DR模式，即(Direct Routing)直接路由模式。当一个client（cip）发送一个WEB请求到virtual server（vip）,例如负载均衡服务器，此时数据包地址cip->vip，然后虚拟服务器仅仅更改MAC地址，选择一台real server（rip），此时数据包地址cip->vip|rip@MAC从而实现返回时直接从real server（rip）到客户（cip）
