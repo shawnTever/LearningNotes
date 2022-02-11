@@ -3,6 +3,7 @@
 - [Design Pattern](#design-pattern)
   - [Singleton](#singleton)
     - [**饿汉式**](#饿汉式)
+    - [**懒汉式 lazy loading**](#懒汉式-lazy-loading)
 
 - [主页](README.md)
 
@@ -47,3 +48,76 @@ public static Singleton getInstance() {
 }
 
 ```
+
+### **懒汉式 lazy loading**
+
+优点：达到了按需初始化的目的
+
+缺点：带来线程不安全问题，因此加上synchronized保证线程安全，但同时效率降低
+
+```java
+public class singleton04 {
+    private static singleton04 INSTANCE;
+    
+    public static synchronized singleton04 singleton04() {
+        if (INSTANCE == null) {
+            INSTANCE = new singleton04();
+        } 
+        return INSTANCE;
+    }
+}
+```
+
+因此在判断的时候上锁，并加上两次判断实现效率提升
+
+```java
+public class singleton05 {
+    private static volatile singleton05 INSTANCE;
+    
+    private singleton05(){
+        
+    }
+
+    public static singleton05 getInstance() {
+        if (INSTANCE == null) {
+            synchronized (singleton05.class) {
+                if (INSTANCE == null)
+                    INSTANCE = new singleton05();
+            }
+        }
+        return INSTANCE;
+    }
+}
+```
+
+改进饿汉式写法，加载外部类的时候不会加载内部类，可实现懒加载
+
+```java
+public class singleton06 {
+
+    private singleton06(){
+
+    }
+
+    private static class singleton06Holder {
+        private final static singleton06 INSTANCE = new singleton06();
+    }
+    public static singleton06 getInstance() {
+        return singleton06Holder.INSTANCE;
+    }
+
+}
+```
+
+effective java中枚举单例写法，不仅可解决线程同步，还可以防止反序列化（因为没有构造方法）。
+
+```java
+public enum singleton07 {
+    INSTANCE;
+    
+    public void m() {
+    }
+}
+```
+
+
