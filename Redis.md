@@ -2,10 +2,12 @@
 
 - [Redis](#redis)
   - [数据类型](#数据类型)
+  - [Redis单线程为什么这么快](#redis单线程为什么这么快)
   - [Redis过期键的删除策略](#redis过期键的删除策略)
-  - [RDB](#rdb)
-  - [RDB 的缺点](#rdb-的缺点)
-  - [AOF](#aof)
+  - [持久化机制RDB、AOF](#持久化机制rdbaof)
+    - [**RDB**](#rdb)
+    - [**RDB 的缺点**](#rdb-的缺点)
+    - [**AOF**](#aof)
 
 - [主页](README.md)
 
@@ -13,7 +15,9 @@
 
 String、Hash、List、Set、SortedSet、HyperLogLog、Geo、Pub/Sub
 
-Redis单线程为什么这么快
+## Redis单线程为什么这么快
+
+磁盘寻址速度为ms级，而内存寻址级别为ns级，理论上而言磁盘比内存寻址慢了10W倍。
 
 Redis基于Reactor模式开发了网络事件处理器、文件事件处理器file event handler，它是单线程的所以Redis才叫做单线程模型，他采用IO多路复用机制来同时监听多个Socket
 
@@ -23,9 +27,9 @@ Redis基于Reactor模式开发了网络事件处理器、文件事件处理器fi
 
 定期过期：每个一定时间，会扫描一定数量的数据库的expires字典中一定数量的key，并清除其中已过期的key。
 
-持久化机制RDB、AOF
+## 持久化机制RDB、AOF
 
-## RDB
+### **RDB**
 
 RDB 有两种持久化方式：**手动触发**和**自动触发**
 
@@ -45,12 +49,13 @@ RDB 有两种持久化方式：**手动触发**和**自动触发**
 
 默认情况下执行 shutdown 命令时，如果没有开启 AOF 持久化功能则自动执行 bgsave
 
-## RDB 的缺点
+### **RDB 的缺点**
 
 - RDB 持久化方式数据**没办法做到实时持久化/秒级持久化**。我们已经知道了 bgsave 命令每次运行都要执行 fork 操作创建子进程，属于重量级操作，频繁执行成本过高。
 
 - RDB 文件使用特定二进制格式保存，Redis 版本演进过程中有多个格式 的 RDB 版本，存在老版本 Redis 服务无法兼容新版 RDB 格式的问题
 
-## AOF
+### **AOF**
 
 记录redis的写操作，一个是将操作命令追加到 AOF_BUF 缓存区，另一个是 AOF_buf 缓存区数据同步到 AOF 文件
+
