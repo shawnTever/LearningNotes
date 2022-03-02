@@ -7,6 +7,10 @@
     - [如何进行通讯](#如何进行通讯)
   - [并发三大特性](#并发三大特性)
   - [线程数多少合适](#线程数多少合适)
+  - [6种线程状态](#6种线程状态)
+    - [submit()和execute之间的区别](#submit和execute之间的区别)
+    - [返回值Future](#返回值future)
+  - [线程打断interrupt](#线程打断interrupt)
   - [强引用](#强引用)
   - [currentThread()方法获得当前线程](#currentthread方法获得当前线程)
   - [getname()方法获得线程名字](#getname方法获得线程名字)
@@ -62,7 +66,6 @@
 
 **有序性**：虚拟机在进行代码编译时，对于那些改变顺序之后不会对结果有影响的代码，虚拟机**不一定会按照我们写的代码来执行**，有可能讲他们重排序
 
-
 ## 线程数多少合适
 
 由于线程转换需要资源，所以并非线程越多越好，理论上线程数量 = CPU 核数（逻辑）就可以了，但是实际上，数量一般会设置为 CPU 核数（逻辑）+ 1。
@@ -74,6 +77,49 @@ N（CPU）处理器核数
 U（CPU）CPU利用率
 
 W等待时间，C计算时间
+
+
+## 6种线程状态
+
+new：线程刚刚创建，还没有启动
+
+runnable：可运行状态，由线程调度器可以安排执行
+
+waiting：等待被唤醒
+
+timed waiting：隔一段时间后自动唤醒
+
+blocked：被阻塞，等待解锁，只有synchronized状态下（经过操作系统调度）线程产生blocked状态，lock下线程产生waiting状态
+
+terminated：线程结束
+
+park：LockSupport类中的方法
+
+### submit()和execute之间的区别
+
+submit()方法，可以提供Future < T > 类型的返回值。
+
+executor()方法，无返回值.
+
+### 返回值Future
+
+Future表示一个可能还没有完成的异步任务的结果，线程运行结束之后，将返回值给Future
+
+```java
+        ExecutorService service = Executors.newCachedThreadPool();
+//        Future表示一个可能还没有完成的异步任务的结果，线程运行结束之后，将返回值给Future
+        Future<String> f = service.submit(new createByCallable());
+//        get()为阻塞类型，线程结束之后拿到返回值之后继续运行程序
+        String s = f.get();
+```
+
+## 线程打断interrupt
+
+interrupt()：打断某个线程（设置标志位）
+
+isInterrupted()：查询某线程是否被打断过（查询标志位）
+
+static interrupted()：查询当前线程是否被打断过，并重置打断标志
 
 ## 强引用
 
@@ -121,7 +167,7 @@ ThreadLocal的作用主要是做数据隔离，填充的数据只属于当前线
 
 volatile主要用在多个线程感知实例变量被更改了场合，从而使得各个线程获得最新的值。它强制线程每次从主内存中讲到变量，而不是从线程的私有内存中读取变量，从而保证了数据的可见性。
 
-比较：
+**比较：**
 
 ①volatile轻量级，只能修饰变量。synchronized重量级，还可修饰方法
 
