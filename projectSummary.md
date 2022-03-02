@@ -60,8 +60,12 @@ RNN到LSTM到transformer到BERT
 #### Transformer parameter
 
 d_model：embedding size 512
+
 d_feedForward：两次线性层中的隐藏层 512->2048->512
-d_K = d_Q = d_V：attention中三个参数维度，一般K=Q，这里方便计算使K=V
+
+d_K = d_Q = d_V：attention中三个参数维度，一般K=Q，这里方便计算使K=V=64
+
 n_layer：number of decoder and encoder layer （相当于有多少个blocks）6
+
 n_head：heads in Multi-Head Attention 8
 
