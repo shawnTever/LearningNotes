@@ -9,6 +9,8 @@
       - [BERT算法模型选取](#bert算法模型选取)
       - [Transformer parameter](#transformer-parameter)
 
+- [主页](README.md)
+
 ## 项目难点
 
 ### 需求难点和沟通难点
