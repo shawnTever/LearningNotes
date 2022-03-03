@@ -5,6 +5,7 @@
   - [dao层、service层和controller层](#dao层service层和controller层)
   - [Spring MVC请求处理流程](#spring-mvc请求处理流程)
   - [模板引擎](#模板引擎)
+  - [SpringIOC](#springioc)
 
 SpringMVC框架是一个基于请求驱动的Web框架
 
@@ -47,3 +48,10 @@ SpringMVC框架是一个基于请求驱动的Web框架
 Thymeleaf：生成动态HTML
 
 常用语法：标准表达式、判断与循环、模板与布局
+
+## SpringIOC
+
+Spring 通过一个配置文件描述 Bean 及 Bean 之间的依赖关系，Spring 的 IoC 容器在完成这些底层工作的基础上，还提供了 Bean 实例
+缓存、生命周期管理、 Bean 实例代理、事件发布、资源装载等高级服务。
+
+Spring 的 IoC 容器可以建立父子层级关联的容器体系，子容器可以访问父容器中的 Bean，但父容器不能访问子容器的 Bean.

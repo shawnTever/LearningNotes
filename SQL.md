@@ -3,7 +3,13 @@
 - [SQL](#sql)
   - [limit 限制查询结果返回数量](#limit-限制查询结果返回数量)
   - [delete删除表中记录](#delete删除表中记录)
+  - [in和exists区别](#in和exists区别)
+  - [int(20)中20的涵义](#int20中20的涵义)
+  - [UNION与UNIONALL的区](#union与unionall的区)
   - [asc 升序, desc 降序](#asc-升序-desc-降序)
+  - [什么是索引？](#什么是索引)
+  - [索引查询方式](#索引查询方式)
+  - [drop、delete与truncate的区别](#dropdelete与truncate的区别)
   - [事务的四大特性（ACID）](#事务的四大特性acid)
   - [MySQL数据库四种隔离级别](#mysql数据库四种隔离级别)
   - [数据库的脏读、幻读、不可重复读](#数据库的脏读幻读不可重复读)
@@ -34,9 +40,51 @@ WHERE 子句：可选项。表示为删除操作限定删除条件，若省略�
 
 LIMIT 子句：可选项。用于告知服务器在控制命令被返回到客户端前被删除行的最大值。
 
+## in和exists区别
+
+select * from A
+where id in(select id from B)
+
+select * from A
+where id exists(select id from B)
+
+in语句是把外表和内表作hash连接，而exists语句是对外表作loop
+
+1. in()适合A表比B表数据大的情况，in用的是hash join，所以内表B如果小，整个查询的范围都会很小，速度快，如果内表B大查询范围大，速度就会很慢。
+
+2. exists()适合A表比B表数据小的情况，因为循环的次数对于exists影响最大，所以，外表A要记录数少，内表B记录要大。
+  
+3. not in 和not exists：如果查询语句使用了not in，那么内外表都进行全表扫描，没有用到索引；而not extsts的子查询依然能用到表上的索引。所以无论那个表大，用not exists都比not in要快。
+
+## int(20)中20的涵义
+
+20表示 大显示宽度为20，但仍占4字节存储
+
+## UNION与UNIONALL的区
+
+如果使用UNION ALL，不会合并重复的记录行，效率 UNION 高于 UNION ALL
+
 ## asc 升序, desc 降序
 
 asc 按升序排列 (不用写，默认使用这个)desc 按降序排列
+
+## 什么是索引？
+
+包含着对数据表里所有记录的引用指针，索引的实现通常使用B树及其变种B+树。
+
+## 索引查询方式
+
+主键索引区:PI(关联保存的时数据的地址)按主键查询,
+
+普通索引区:si(关联的id的地址,然后再到达上面的地址)。所以按主键查询,速度快
+
+## drop、delete与truncate的区别
+
+在不再需要一张表的时候，用drop；
+
+在想删除部分数据行时候，用 delete；
+
+在保留表而删除所有数据的时候用truncate
 
 ## 事务的四大特性（ACID）
 
