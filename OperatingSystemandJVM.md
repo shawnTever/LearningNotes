@@ -6,6 +6,11 @@
     - [JVM层级的4个内存屏障](#jvm层级的4个内存屏障)
     - [as if serial 单线程执行结果不变](#as-if-serial-单线程执行结果不变)
 
+- [主页](README.md)
+
+JRE = JVM + core lib
+JDK = JRE + development kit
+
 ## CPU乱序执行
 
 ### CUP层面如何禁止重排序

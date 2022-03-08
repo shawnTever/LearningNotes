@@ -51,7 +51,10 @@ Thymeleaf：生成动态HTML
 
 ## SpringIOC
 
+控制反转即IoC (Inversion of Control)，它把传统上由程序代码直接操控的对象的调用权交给容器，通过容器来实现对象组件的装配和管理。
+
 Spring 通过一个配置文件描述 Bean 及 Bean 之间的依赖关系，Spring 的 IoC 容器在完成这些底层工作的基础上，还提供了 Bean 实例
 缓存、生命周期管理、 Bean 实例代理、事件发布、资源装载等高级服务。
 
 Spring 的 IoC 容器可以建立父子层级关联的容器体系，子容器可以访问父容器中的 Bean，但父容器不能访问子容器的 Bean.
+
