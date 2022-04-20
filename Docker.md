@@ -12,6 +12,10 @@
   - [启动容器 docker start](#启动容器-docker-start)
   - [停止容器 docker stop](#停止容器-docker-stop)
   - [标记本地镜像 docker tag](#标记本地镜像-docker-tag)
+  - [Dockerfile，Docker-compose和Kubernetes](#dockerfiledocker-compose和kubernetes)
+    - [dockerfile](#dockerfile)
+    - [docker-compose（docker-compose.yml ）](#docker-composedocker-composeyml-)
+    - [Kubernetes](#kubernetes)
   - [docker-compose up -d 启动所有服务](#docker-compose-up--d-启动所有服务)
   - [docker-compose ps 检查服务状态](#docker-compose-ps-检查服务状态)
   - [docker-compose down 停止所有容器服务](#docker-compose-down-停止所有容器服务)
@@ -140,6 +144,20 @@ eg:
 docker tag ubuntu:15.10 runoob/ubuntu:v3
 
 REPOSITORY TAG IMAGE ID CREATED  SIZErunoob/ubuntu v3 4e3b13c8a266 3 months ago 136.3 MB
+
+## Dockerfile，Docker-compose和Kubernetes
+
+### dockerfile
+
+从无到有的构建镜像，包括依赖环境、代码、中间件、数据库等。
+
+### docker-compose（docker-compose.yml ）
+
+单机管理，编排容器，可以同时管理多个 container ，将多个相关的容器一次性启动，比如运行一个jar需要依赖jdk、mysql、mq、redis等，这些容器只需要 docker-composer up 就可以全部启动，不需要一个个单独启动。
+
+### Kubernetes
+
+Kubernetes是Google开发的容器编排工具。
 
 ## docker-compose up -d 启动所有服务
 
