@@ -12,5 +12,7 @@
 - [Java](Java.md)
 - [project summary](projectSummary.md)
 - [Docker](Docker.md)
+- [Machine Learning and Deep Learning](ML.md)
 - [Class File](ClassFile.md)
 - [Markdown](Markdown.md)
+- [LeetCode](LeetCode.md)
