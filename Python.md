@@ -6,6 +6,7 @@
   - [Python的作用域](#python的作用域)
   - [Python的数据结构](#python的数据结构)
   - [Python可变与不可变类型](#python可变与不可变类型)
+  - [Python垃圾回收](#python垃圾回收)
 
 - [主页](README.md)
 
@@ -41,3 +42,7 @@ Python中内置的数据结构有六种:Number (数值)、String (字符串)、l
 可变：列表、集合、字典
 
 不可变：字符串、元组、数字
+
+## Python垃圾回收
+
+引用计数器为主，标记清除、分代回收为辅
