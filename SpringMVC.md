@@ -1,6 +1,6 @@
-# SpringMVC
+# Spring和SpringMVC
 
-- [SpringMVC](#springmvc)
+- [Spring和SpringMVC](#spring和springmvc)
   - [MVC（表现层）](#mvc表现层)
   - [dao层、service层和controller层](#dao层service层和controller层)
   - [Spring MVC请求处理流程](#spring-mvc请求处理流程)
